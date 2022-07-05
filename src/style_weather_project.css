@@ -1,0 +1,125 @@
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+.weather-for-you {
+  width: 650px;
+  margin: 40px auto;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: bold;
+  color: #006fc5;
+  margin-top: 60px;
+}
+
+h2 {
+  font-size: 62px;
+  text-align: right;
+}
+
+h3 {
+  font-size: 36px;
+  margin-bottom: 1px;
+  line-height: 1;
+}
+
+h5 {
+  color: #006fc5;
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.header {
+  margin-top: 20px;
+}
+
+.logo {
+  color: #006fc5;
+  font-size: 24px;
+  font-family: "Forum", cursive;
+}
+
+.search-box {
+  align-items: right;
+}
+
+.city {
+  font-weight: bold;
+  text-align: center;
+}
+.current-city {
+  margin-top: 40px;
+}
+
+.current-weather {
+  text-align: right;
+  padding: 10px;
+}
+
+.current-weather-card {
+  width: 200px;
+}
+
+.metric {
+  font-weight: bold;
+}
+
+.C,
+.F {
+  cursor: default;
+}
+
+.metricColor {
+  color: #006fc5;
+}
+
+.current-details {
+  margin: 15px 0;
+}
+
+.detail-card {
+  padding: 3px;
+}
+
+.forecast {
+  margin: 40px 0;
+}
+
+.dimension {
+  font-size: 10px;
+}
+
+.forecast-info {
+  padding: 0;
+}
+
+.forecast-col {
+  padding: 3px;
+}
+.forcast-card {
+  padding: 7px;
+}
+
+.forecast-day {
+  text-align: center;
+  font-size: 12px;
+}
+
+.forecast-emoji {
+  font-size: 28px;
+  text-align: right;
+}
+
+.city:hover {
+  color: #006fc5;
+  cursor: pointer;
+  text-decoration: underline;
+}
