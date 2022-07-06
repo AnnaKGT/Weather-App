@@ -50,12 +50,18 @@ p {
 
 .logo {
   color: #006fc5;
-  font-size: 24px;
+  font-size: 28px;
   font-family: "Forum", cursive;
+  padding-top: 10px;
 }
 
 .search-box {
   align-items: right;
+}
+
+#current-location {
+  display: block;
+  margin: 0 auto;
 }
 
 .city {
