@@ -3,8 +3,15 @@ body {
 }
 
 .weather-for-you {
-  width: 650px;
+  width: 700px;
   margin: 40px auto;
+}
+
+.wrapper {
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 h1 {

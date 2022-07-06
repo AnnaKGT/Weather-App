@@ -26,257 +26,269 @@
   </head>
   <body>
     <div class="container weather-for-you">
-      <div class="row header">
-        <div class="col-4">
-          <h3 class="logo">Weather for You</h3>
+      <div class="wrapper">
+        <div class="row header">
+          <div class="col-4">
+            <h3 class="logo">Weather for You</h3>
+          </div>
+
+          <div class="col-6 search-box">
+            <form id="search-form">
+              <div class="input-group mb-3">
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="City"
+                  autofocus="on"
+                  autocomplete="off"
+                  id="search-city"
+                />
+                <button class="btn btn-primary" type="button" id="search-box">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-2">
+            <button class="btn btn-success" type="button" id="current-location">
+              Current
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="city" id="city-1">Lisbon</p>
+          </div>
+          <div class="col">
+            <p class="city" id="city-2">Paris</p>
+          </div>
+          <div class="col">
+            <p class="city" id="city-3">Lviv</p>
+          </div>
+          <div class="col">
+            <p class="city" id="city-4">London</p>
+          </div>
+          <div class="col">
+            <p class="city" id="city-5">Warsaw</p>
+          </div>
+          <div class="col">
+            <p class="city" id="city-6">Kharkiv</p>
+          </div>
         </div>
 
-        <div class="col-6 search-box">
-          <form id="search-form">
-            <div class="input-group mb-3">
-              <input
-                type="search"
-                class="form-control"
-                placeholder="City"
-                autofocus="on"
-                autocomplete="off"
-                id="search-city"
-              />
-              <button class="btn btn-primary" type="button" id="search-box">
-                Search
-              </button>
+        <div class="row current-city">
+          <div class="col-6">
+            <h1 id="current-city">Kyiv</h1>
+          </div>
+          <div class="col-6">
+            <div class="current-weather">
+              <h5 id="current-day">Wednesday, 01 July</h5>
+              <div class="metric">
+                <span class="C metricColor">C</span> |<span class="F"> F</span>
+              </div>
+
+              <div class="row">
+                <div class="col-9">
+                  <h2>🌤️</h2>
+                </div>
+                <div class="col-3">
+                  <h3><span id="temp-current-max">21</span>°</h3>
+                  <h3><span id="temp-current-min">15</span>°</h3>
+                </div>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
 
-        <div class="col-2">
-          <button class="btn btn-success" type="button" id="current-location">
-            Current
-          </button>
+        <div class="row current-details">
+          <div class="col-4 detail-card">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5>Wind</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <h3>💨</h3>
+                  </div>
+                  <div class="col-6">
+                    <h3>
+                      <span id="wind">16</span
+                      ><small class="dimension" id="wind-dimension"
+                        >m/sec</small
+                      >
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 detail-card">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5>Humidity</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <h3>💧</h3>
+                  </div>
+                  <div class="col-6">
+                    <h3>
+                      <span id="humidity">66</span
+                      ><small class="dimension">%</small>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4 detail-card">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5>Feels like</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <h3>🌡️</h3>
+                  </div>
+                  <div class="col-6">
+                    <h3><span id="temp-current-feels">24</span>°</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div class="row forecast">
+          <div class="col-2 forecast-col">
+            <div class="card shadow-sm">
+              <div class="card-body forcast-card">
+                <h5 class="forecast-day">
+                  Thuesday <br />
+                  02 July
+                </h5>
+
+                <div class="row">
+                  <div class="col-6 forecast-detail">
+                    <strong class="forecast-emoji">☀️</strong>
+                  </div>
+                  <div class="col-6 forecast-detail">
+                    <p>21°</p>
+                    <p>18°</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2 forecast-col">
+            <div class="card shadow-sm">
+              <div class="card-body forcast-card">
+                <h5 class="forecast-day">Friday <br />03 July</h5>
+
+                <div class="row">
+                  <div class="col-6 forecast-detail">
+                    <strong class="forecast-emoji">🌦️</strong>
+                  </div>
+                  <div class="col-6 forecast-detail">
+                    <p>19°</p>
+                    <p>15°</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2 forecast-col">
+            <div class="card shadow-sm">
+              <div class="card-body forcast-card">
+                <h5 class="forecast-day">
+                  Saturday, <br />
+                  04 July
+                </h5>
+
+                <div class="row">
+                  <div class="col-6 forecast-detail">
+                    <strong class="forecast-emoji">☀️</strong>
+                  </div>
+                  <div class="col-6 forecast-detail">
+                    <p>24°</p>
+                    <p>20°</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2 forecast-col">
+            <div class="card shadow-sm">
+              <div class="card-body forcast-card">
+                <h5 class="forecast-day">
+                  Sunday <br />
+                  05 July
+                </h5>
+
+                <div class="row">
+                  <div class="col-6 forecast-detail">
+                    <strong class="forecast-emoji">🌤️</strong>
+                  </div>
+                  <div class="col-6 forecast-detail">
+                    <p>23°</p>
+                    <p>19°</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2 forecast-col">
+            <div class="card shadow-sm">
+              <div class="card-body forcast-card">
+                <h5 class="forecast-day">
+                  Monday <br />
+                  06 July
+                </h5>
+
+                <div class="row">
+                  <div class="col-6 forecast-detail">
+                    <strong class="forecast-emoji">☀️</strong>
+                  </div>
+                  <div class="col-6 forecast-detail">
+                    <p>26°</p>
+                    <p>21°</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2 forecast-col">
+            <div class="card shadow-sm">
+              <div class="card-body forcast-card">
+                <h5 class="forecast-day">Thuesday <br />07 July</h5>
+
+                <div class="row">
+                  <div class="col-6 forecast-detail">
+                    <strong class="forecast-emoji">🌦️</strong>
+                  </div>
+                  <div class="col-6 forecast-detail">
+                    <p>22°</p>
+                    <p>17°</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <p class="city" id="city-1">Lisbon</p>
-        </div>
-        <div class="col">
-          <p class="city" id="city-2">Paris</p>
-        </div>
-        <div class="col">
-          <p class="city" id="city-3">Lviv</p>
-        </div>
-        <div class="col">
-          <p class="city" id="city-4">London</p>
-        </div>
-        <div class="col">
-          <p class="city" id="city-5">Warsaw</p>
-        </div>
-        <div class="col">
-          <p class="city" id="city-6">Kharkiv</p>
-        </div>
-      </div>
-
-      <div class="row current-city">
-        <div class="col-6">
-          <h1 id="current-city">Kyiv</h1>
-        </div>
-        <div class="col-6">
-          <div class="current-weather">
-            <h5 id="current-day">Wednesday, 01 July</h5>
-            <div class="metric">
-              <span class="C metricColor">C</span> |<span class="F"> F</span>
-            </div>
-
-            <div class="row">
-              <div class="col-9">
-                <h2>🌤️</h2>
-              </div>
-              <div class="col-3">
-                <h3><span id="temp-current-max">21</span>°</h3>
-                <h3><span id="temp-current-min">15</span>°</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row current-details">
-        <div class="col-4 detail-card">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h5>Wind</h5>
-              <div class="row">
-                <div class="col-6">
-                  <h3>💨</h3>
-                </div>
-                <div class="col-6">
-                  <h3>
-                    <span id="wind">16</span
-                    ><small class="dimension" id="wind-dimension">m/sec</small>
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-4 detail-card">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h5>Humidity</h5>
-              <div class="row">
-                <div class="col-6">
-                  <h3>💧</h3>
-                </div>
-                <div class="col-6">
-                  <h3>
-                    <span id="humidity">66</span
-                    ><small class="dimension">%</small>
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-4 detail-card">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h5>Feels like</h5>
-              <div class="row">
-                <div class="col-6">
-                  <h3>🌡️</h3>
-                </div>
-                <div class="col-6">
-                  <h3><span id="temp-current-feels">24</span>°</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr />
-
-      <div class="row forecast">
-        <div class="col-2 forecast-col">
-          <div class="card shadow-sm">
-            <div class="card-body forcast-card">
-              <h5 class="forecast-day">
-                Thuesday <br />
-                02 July
-              </h5>
-
-              <div class="row">
-                <div class="col-6 forecast-detail">
-                  <strong class="forecast-emoji">☀️</strong>
-                </div>
-                <div class="col-6 forecast-detail">
-                  <p>21°</p>
-                  <p>18°</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-2 forecast-col">
-          <div class="card shadow-sm">
-            <div class="card-body forcast-card">
-              <h5 class="forecast-day">Friday <br />03 July</h5>
-
-              <div class="row">
-                <div class="col-6 forecast-detail">
-                  <strong class="forecast-emoji">🌦️</strong>
-                </div>
-                <div class="col-6 forecast-detail">
-                  <p>19°</p>
-                  <p>15°</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-2 forecast-col">
-          <div class="card shadow-sm">
-            <div class="card-body forcast-card">
-              <h5 class="forecast-day">
-                Saturday, <br />
-                04 July
-              </h5>
-
-              <div class="row">
-                <div class="col-6 forecast-detail">
-                  <strong class="forecast-emoji">☀️</strong>
-                </div>
-                <div class="col-6 forecast-detail">
-                  <p>24°</p>
-                  <p>20°</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-2 forecast-col">
-          <div class="card shadow-sm">
-            <div class="card-body forcast-card">
-              <h5 class="forecast-day">
-                Sunday <br />
-                05 July
-              </h5>
-
-              <div class="row">
-                <div class="col-6 forecast-detail">
-                  <strong class="forecast-emoji">🌤️</strong>
-                </div>
-                <div class="col-6 forecast-detail">
-                  <p>23°</p>
-                  <p>19°</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-2 forecast-col">
-          <div class="card shadow-sm">
-            <div class="card-body forcast-card">
-              <h5 class="forecast-day">
-                Monday <br />
-                06 July
-              </h5>
-
-              <div class="row">
-                <div class="col-6 forecast-detail">
-                  <strong class="forecast-emoji">☀️</strong>
-                </div>
-                <div class="col-6 forecast-detail">
-                  <p>26°</p>
-                  <p>21°</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-2 forecast-col">
-          <div class="card shadow-sm">
-            <div class="card-body forcast-card">
-              <h5 class="forecast-day">Thuesday <br />07 July</h5>
-
-              <div class="row">
-                <div class="col-6 forecast-detail">
-                  <strong class="forecast-emoji">🌦️</strong>
-                </div>
-                <div class="col-6 forecast-detail">
-                  <p>22°</p>
-                  <p>17°</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="footer">
+        <span
+          ><a href="https://github.com/AnnaKGT/Weather-App" target="_blank"
+            >Open-source code</a
+          ></span
+        >
+        by Anna Kohut
       </div>
     </div>
     <script src="src/js_weather_project.js"></script>
