@@ -94,6 +94,14 @@ p {
   color: #006fc5;
 }
 
+.current-icon {
+  font-size: 36px;
+}
+
+#weater-description {
+  font-size: 16px;
+}
+
 .current-details {
   margin: 15px 0;
 }

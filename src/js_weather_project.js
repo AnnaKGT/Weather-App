@@ -166,6 +166,7 @@ function showData(response) {
   let tempCurrentFeels = document.querySelector("#temp-current-feels");
   let currentHumidity = document.querySelector("#humidity");
   let currentWind = document.querySelector("#wind");
+  let currentWeaterDes = document.querySelector("#weater-description");
   let currentCity = document.querySelector("#current-city");
 
   tempCurrentMax.innerHTML = Math.round(response.data.main.temp_max);
@@ -174,6 +175,7 @@ function showData(response) {
   currentHumidity.innerHTML = Math.round(response.data.main.humidity);
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   currentCity.innerHTML = response.data.name;
+  currentWeaterDes.innerHTML = response.data.weather[0].main;
 
   console.log(response.data);
 }
