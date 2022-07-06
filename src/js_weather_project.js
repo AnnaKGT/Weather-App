@@ -258,3 +258,86 @@ function getLoc(event) {
 
 let currentLoc = document.querySelector("#current-location");
 currentLoc.addEventListener("click", getLoc);
+
+// weather saved cities
+function getWeather1(event) {
+  let city = document.querySelector("#city-1");
+  let cityApi = city.innerHTML;
+
+  let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showData);
+  console.log(cityApi);
+}
+
+let city1 = document.querySelector("#city-1");
+city1.addEventListener("click", getWeather1);
+console.log(city1);
+
+function getWeather2(event) {
+  let city = document.querySelector("#city-2");
+  let cityApi = city.innerHTML;
+
+  let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showData);
+  console.log(cityApi);
+}
+
+let city2 = document.querySelector("#city-2");
+city2.addEventListener("click", getWeather2);
+
+function getWeather3(event) {
+  let city = document.querySelector("#city-3");
+  let cityApi = city.innerHTML;
+
+  let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showData);
+  console.log(cityName);
+}
+
+let city3 = document.querySelector("#city-3");
+city3.addEventListener("click", getWeather3);
+
+function getWeather4(event) {
+  let city = document.querySelector("#city-4");
+  let cityApi = city.innerHTML;
+
+  let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showData);
+}
+
+let city4 = document.querySelector("#city-4");
+city4.addEventListener("click", getWeather4);
+
+function getWeather5(event) {
+  let city = document.querySelector("#city-5");
+  let cityApi = city.innerHTML;
+
+  let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showData);
+}
+
+let city5 = document.querySelector("#city-5");
+city5.addEventListener("click", getWeather5);
+
+function getWeather6(event) {
+  let city = document.querySelector("#city-6");
+  let cityApi = city.innerHTML;
+
+  let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showData);
+}
+
+let city6 = document.querySelector("#city-6");
+city6.addEventListener("click", getWeather6);
