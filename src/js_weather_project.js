@@ -174,6 +174,8 @@ function showData(response) {
   currentHumidity.innerHTML = Math.round(response.data.main.humidity);
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   currentCity.innerHTML = response.data.name;
+
+  console.log(response.data);
 }
 
 function searchCity(event) {
@@ -268,12 +270,10 @@ function getWeather1(event) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
-  console.log(cityApi);
 }
 
 let city1 = document.querySelector("#city-1");
 city1.addEventListener("click", getWeather1);
-console.log(city1);
 
 function getWeather2(event) {
   let city = document.querySelector("#city-2");
@@ -283,7 +283,6 @@ function getWeather2(event) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
-  console.log(cityApi);
 }
 
 let city2 = document.querySelector("#city-2");
@@ -297,7 +296,6 @@ function getWeather3(event) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
-  console.log(cityName);
 }
 
 let city3 = document.querySelector("#city-3");
