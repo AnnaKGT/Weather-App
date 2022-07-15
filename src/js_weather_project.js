@@ -1,11 +1,12 @@
 // Format current date
 function getCurrentDay(dateFormat) {
   let date = new Date(dateFormat);
-  let time = date.getHours();
+  let currentDate = new Date();
+  let time = currentDate.getHours();
   if (time < 10) {
     time = `0${time}`;
   }
-  let min = date.getMinutes();
+  let min = currentDate.getMinutes();
   if (min < 10) {
     min = `0${min}`;
   }
@@ -74,7 +75,6 @@ function searchCity(event) {
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let cityApi = currentCity.innerHTML;
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
@@ -96,7 +96,7 @@ function conversionF() {
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let currentCity = document.querySelector("#current-city");
   let cityApi = currentCity.innerHTML;
-  let units = "imperial";
+  units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 
@@ -107,14 +107,14 @@ function conversionF() {
   metricF.classList.toggle("metricColor");
 
   let windDimen = document.querySelector("#wind-dimension");
-  windDimen.innerHTML = "mil/h";
+  windDimen.innerHTML = "m/h";
 }
 
 function conversionC() {
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let currentCity = document.querySelector("#current-city");
   let cityApi = currentCity.innerHTML;
-  let units = "metric";
+  units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 
@@ -137,7 +137,6 @@ function getPosition(position) {
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
@@ -155,7 +154,6 @@ function getWeather1(event) {
   let cityApi = city.innerHTML;
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
@@ -168,7 +166,6 @@ function getWeather2(event) {
   let cityApi = city.innerHTML;
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
@@ -181,7 +178,6 @@ function getWeather3(event) {
   let cityApi = city.innerHTML;
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
@@ -194,7 +190,6 @@ function getWeather4(event) {
   let cityApi = city.innerHTML;
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
@@ -207,7 +202,6 @@ function getWeather5(event) {
   let cityApi = city.innerHTML;
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
@@ -220,7 +214,6 @@ function getWeather6(event) {
   let cityApi = city.innerHTML;
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-  let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showData);
 }
