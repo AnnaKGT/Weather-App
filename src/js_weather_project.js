@@ -103,8 +103,8 @@ function conversionF() {
   let metricC = document.querySelector(".C");
   let metricF = document.querySelector(".F");
 
-  metricC.classList.toggle("metricColor");
-  metricF.classList.toggle("metricColor");
+  metricC.classList.add("metricColor");
+  metricF.classList.remove("metricColor");
 
   let windDimen = document.querySelector("#wind-dimension");
   windDimen.innerHTML = "m/h";
@@ -122,8 +122,9 @@ function conversionC() {
   let metricF = document.querySelector(".F");
   let windDimen = document.querySelector("#wind-dimension");
   windDimen.innerHTML = "m/sec";
-  metricF.classList.toggle("metricColor");
-  metricC.classList.toggle("metricColor");
+
+  metricF.classList.add("metricColor");
+  metricC.classList.remove("metricColor");
 }
 
 let metricConverF = document.querySelector(".F");
