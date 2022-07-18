@@ -105,6 +105,20 @@ function getForecast(coordinates) {
 
 // search city
 function showData(response) {
+  // let city1 = document.querySelector("#city-1");
+  // let city2 = document.querySelector("#city-2");
+  // let city3 = document.querySelector("#city-3");
+  // let city4 = document.querySelector("#city-4");
+  // let city5 = document.querySelector("#city-5");
+  // let city6 = document.querySelector("#city-6");
+
+  // city6.innerHTML = city5.innerHTML;
+  // city5.innerHTML = city4.innerHTML;
+  // city4.innerHTML = city3.innerHTML;
+  // city3.innerHTML = city2.innerHTML;
+  // city2.innerHTML = city1.innerHTML;
+  // city1.innerHTML = currentCity.innerHTML;
+
   let dateElement = document.querySelector("#current-day");
   let tempCurrentMax = document.querySelector("#temp-current-max");
   let tempCurrentMin = document.querySelector("#temp-current-min");
@@ -135,29 +149,21 @@ function showData(response) {
   getForecast(response.data.coord);
 }
 
+function apiError() {
+  alert("Please, try again!");
+}
+
 function searchCity(event) {
   event.preventDefault();
-  let currentCity = document.querySelector("#current-city");
+  // let currentCity = document.querySelector("#current-city");
   let searchCity = document.querySelector("#search-city");
-  let city1 = document.querySelector("#city-1");
-  let city2 = document.querySelector("#city-2");
-  let city3 = document.querySelector("#city-3");
-  let city4 = document.querySelector("#city-4");
-  let city5 = document.querySelector("#city-5");
-  let city6 = document.querySelector("#city-6");
 
-  city6.innerHTML = city5.innerHTML;
-  city5.innerHTML = city4.innerHTML;
-  city4.innerHTML = city3.innerHTML;
-  city3.innerHTML = city2.innerHTML;
-  city2.innerHTML = city1.innerHTML;
-  city1.innerHTML = currentCity.innerHTML;
-  currentCity.innerHTML = searchCity.value;
+  // currentCity.innerHTML = searchCity.value;
 
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-  let cityApi = currentCity.innerHTML;
+  let cityApi = searchCity.value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showData);
+  axios.get(apiUrl).then(showData).catch(apiError);
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -202,7 +208,7 @@ function conversionC() {
   let metricC = document.querySelector(".C");
   let metricF = document.querySelector(".F");
   let windDimen = document.querySelector("#wind-dimension");
-  windDimen.innerHTML = "m/s";
+  windDimen.innerHTML = "m/sec";
 
   metricF.classList.add("metricColor");
   metricC.classList.remove("metricColor");
