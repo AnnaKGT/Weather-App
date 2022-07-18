@@ -1,3 +1,54 @@
+// Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row forecast">`;
+
+  let days = [
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2 forecast-col">
+          <div class="card shadow-sm">
+            <div class="card-body forcast-card">
+              <h5 class="forecast-day">
+                ${day} <br />
+                18 July
+              </h5>
+
+              <div class="row">
+                <div class="col-6 forecast-detail">
+                  <img
+                    src="http://openweathermap.org/img/wn/10d@2x.png"
+                    alt="description"
+                    id="forecast-icon"
+                    width="50px"
+                  />
+                </div>
+                <div class="col-6 forecast-temp">
+                  <div class="temp-max">21°</div>
+                  <div class="temp-min">18°</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 // Format current date
 function getCurrentDay(dateFormat) {
   let date = new Date(dateFormat);

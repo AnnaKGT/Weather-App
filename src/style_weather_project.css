@@ -146,11 +146,23 @@ p {
 .forecast-day {
   text-align: center;
   font-size: 12px;
+  margin: 0;
 }
 
-.forecast-emoji {
+/* .forecast-emoji {
   font-size: 28px;
   text-align: right;
+} */
+
+.forecast-temp {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding-top: 5px;
+}
+
+.temp-min {
+  opacity: 0.7;
 }
 
 .city:hover {
