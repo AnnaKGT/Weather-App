@@ -1,54 +1,3 @@
-// Forecast
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row forecast">`;
-
-  let days = [
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col-2 forecast-col">
-          <div class="card shadow-sm">
-            <div class="card-body forcast-card">
-              <h5 class="forecast-day">
-                ${day} <br />
-                18 July
-              </h5>
-
-              <div class="row">
-                <div class="col-6 forecast-detail">
-                  <img
-                    src="http://openweathermap.org/img/wn/10d@2x.png"
-                    alt="description"
-                    id="forecast-icon"
-                    width="50px"
-                  />
-                </div>
-                <div class="col-6 forecast-temp">
-                  <div class="temp-max">21°</div>
-                  <div class="temp-min">18°</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>`;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-
-  forecastElement.innerHTML = forecastHTML;
-}
-
-displayForecast();
-
 // Format current date
 function getCurrentDay(dateFormat) {
   let date = new Date(dateFormat);
@@ -73,6 +22,85 @@ function getCurrentDay(dateFormat) {
   let day = days[date.getDay()];
 
   return `${day} ${time}:${min}`;
+}
+
+// Forecast
+function displayForecast(response) {
+  let forecastAll = response.data.daily.slice(1, 7);
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row forecast">`;
+
+  forecastAll.forEach(function (day) {
+    let date = new Date(day.dt * 1000);
+    let weekDays = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let monthsAll = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    let dayWeek = weekDays[date.getDay()];
+    let dateDay = date.getDate();
+    let month = monthsAll[date.getMonth()];
+    let iconCode = day.weather[0].icon;
+    let tempMax = Math.round(day.temp.max);
+    let tempMin = Math.round(day.temp.min);
+
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2 forecast-col">
+          <div class="card shadow-sm">
+            <div class="card-body forcast-card">
+              <h5 class="forecast-day">
+                ${dayWeek} <br />
+                ${dateDay} ${month}
+              </h5>
+
+              <div class="row">
+                <div class="col-6 forecast-detail">
+                  <img
+                    src="http://openweathermap.org/img/wn/${iconCode}@2x.png"
+                    alt="description"
+                    id="forecast-icon"
+                    width="50px"
+                  />
+                </div>
+                <div class="col-6 forecast-temp">
+                  <div class="temp-max">${tempMax}°</div>
+                  <div class="temp-min">${tempMin}°</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${units}&appid=${apiKey}`;
+
+  axios.get(apiCall).then(displayForecast);
 }
 
 // search city
@@ -103,6 +131,8 @@ function showData(response) {
     "alt",
     `http://openweathermap.org/img/wn/${response.data.weather[0].main}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(event) {
@@ -172,7 +202,7 @@ function conversionC() {
   let metricC = document.querySelector(".C");
   let metricF = document.querySelector(".F");
   let windDimen = document.querySelector("#wind-dimension");
-  windDimen.innerHTML = "m/sec";
+  windDimen.innerHTML = "m/s";
 
   metricF.classList.add("metricColor");
   metricC.classList.remove("metricColor");

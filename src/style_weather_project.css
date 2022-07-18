@@ -123,6 +123,11 @@ p {
   margin-bottom: 10px;
 }
 
+.details-description {
+  padding: 0 10px;
+  text-align: center;
+}
+
 .forecast {
   margin: 15px 0;
 }
