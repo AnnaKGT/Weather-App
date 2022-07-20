@@ -25,7 +25,7 @@ function getCurrentDay(dateFormat) {
 }
 
 // Forecast
-function getDayWeek(dayStamp) {
+function formatDayWeek(dayStamp) {
   let date = new Date(dayStamp * 1000);
   let weekDays = [
     "Sunday",
@@ -41,7 +41,7 @@ function getDayWeek(dayStamp) {
   return dayWeek;
 }
 
-function getDateMonth(dayStamp) {
+function formatDateMonth(dayStamp) {
   let date = new Date(dayStamp * 1000);
   let monthsAll = [
     "January",
@@ -81,8 +81,8 @@ function displayForecast(response) {
           <div class="card shadow-sm">
             <div class="card-body forcast-card">
               <h5 class="forecast-day">
-                ${getDayWeek(dayForecast.dt)} <br />
-                ${getDateMonth(dayForecast.dt)}
+                ${formatDayWeek(dayForecast.dt)} <br />
+                ${formatDateMonth(dayForecast.dt)}
               </h5>
 
               <div class="row">
