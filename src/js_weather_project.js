@@ -25,43 +25,55 @@ function getCurrentDay(dateFormat) {
 }
 
 // Forecast
+function getDayWeek(dayStamp) {
+  let date = new Date(dayStamp * 1000);
+  let weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let dayWeek = weekDays[date.getDay()];
+
+  return dayWeek;
+}
+
+function getDateMonth(dayStamp) {
+  let date = new Date(dayStamp * 1000);
+  let monthsAll = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let day = date.getDate();
+  let month = monthsAll[date.getMonth()];
+  dateMonth = `${day} ${month}`;
+
+  return dateMonth;
+}
+
 function displayForecast(response) {
   let forecastAll = response.data.daily.slice(1, 7);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row forecast">`;
 
-  forecastAll.forEach(function (day) {
-    let date = new Date(day.dt * 1000);
-    let weekDays = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    let monthsAll = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    let dayWeek = weekDays[date.getDay()];
-    let dateDay = date.getDate();
-    let month = monthsAll[date.getMonth()];
-    let iconCode = day.weather[0].icon;
-    let tempMax = Math.round(day.temp.max);
-    let tempMin = Math.round(day.temp.min);
+  forecastAll.forEach(function (dayForecast) {
+    let iconCode = dayForecast.weather[0].icon;
+    let tempMax = Math.round(dayForecast.temp.max);
+    let tempMin = Math.round(dayForecast.temp.min);
 
     forecastHTML =
       forecastHTML +
@@ -69,8 +81,8 @@ function displayForecast(response) {
           <div class="card shadow-sm">
             <div class="card-body forcast-card">
               <h5 class="forecast-day">
-                ${dayWeek} <br />
-                ${dateDay} ${month}
+                ${getDayWeek(dayForecast.dt)} <br />
+                ${getDateMonth(dayForecast.dt)}
               </h5>
 
               <div class="row">
@@ -105,20 +117,6 @@ function getForecast(coordinates) {
 
 // search city
 function showData(response) {
-  // let city1 = document.querySelector("#city-1");
-  // let city2 = document.querySelector("#city-2");
-  // let city3 = document.querySelector("#city-3");
-  // let city4 = document.querySelector("#city-4");
-  // let city5 = document.querySelector("#city-5");
-  // let city6 = document.querySelector("#city-6");
-
-  // city6.innerHTML = city5.innerHTML;
-  // city5.innerHTML = city4.innerHTML;
-  // city4.innerHTML = city3.innerHTML;
-  // city3.innerHTML = city2.innerHTML;
-  // city2.innerHTML = city1.innerHTML;
-  // city1.innerHTML = currentCity.innerHTML;
-
   let dateElement = document.querySelector("#current-day");
   let tempCurrentMax = document.querySelector("#temp-current-max");
   let tempCurrentMin = document.querySelector("#temp-current-min");
@@ -141,10 +139,6 @@ function showData(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  currentIcon.setAttribute(
-    "alt",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].main}@2x.png`
-  );
 
   getForecast(response.data.coord);
 }
@@ -155,11 +149,8 @@ function apiError() {
 
 function searchCity(event) {
   event.preventDefault();
-  // let currentCity = document.querySelector("#current-city");
+
   let searchCity = document.querySelector("#search-city");
-
-  // currentCity.innerHTML = searchCity.value;
-
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let cityApi = searchCity.value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
@@ -168,14 +159,6 @@ function searchCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
-
-// current weather
-let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
-let currentCity = document.querySelector("#current-city");
-let cityApi = currentCity.innerHTML;
-let units = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
-axios.get(apiUrl).then(showData);
 
 // conversion temp
 
@@ -316,3 +299,11 @@ city3.addEventListener("click", getWeather3);
 city4.addEventListener("click", getWeather4);
 city5.addEventListener("click", getWeather5);
 city6.addEventListener("click", getWeather6);
+
+// current weather
+let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
+let currentCity = document.querySelector("#current-city");
+let cityApi = currentCity.innerHTML;
+let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(showData);
