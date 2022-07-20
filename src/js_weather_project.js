@@ -240,71 +240,79 @@ currentLoc.addEventListener("click", getLoc);
 function getWeather1(event) {
   let city = document.querySelector("#city-1");
   let cityApi = city.innerHTML;
-
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  let cityCurrent = document.querySelector("#current-city");
+
+  city.innerHTML = cityCurrent.innerHTML;
   axios.get(apiUrl).then(showData);
 }
-
-let city1 = document.querySelector("#city-1");
-city1.addEventListener("click", getWeather1);
 
 function getWeather2(event) {
   let city = document.querySelector("#city-2");
   let cityApi = city.innerHTML;
-
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  let cityCurrent = document.querySelector("#current-city");
+
+  city.innerHTML = cityCurrent.innerHTML;
   axios.get(apiUrl).then(showData);
 }
-
-let city2 = document.querySelector("#city-2");
-city2.addEventListener("click", getWeather2);
 
 function getWeather3(event) {
   let city = document.querySelector("#city-3");
   let cityApi = city.innerHTML;
-
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  let cityCurrent = document.querySelector("#current-city");
+
+  city.innerHTML = cityCurrent.innerHTML;
   axios.get(apiUrl).then(showData);
 }
-
-let city3 = document.querySelector("#city-3");
-city3.addEventListener("click", getWeather3);
 
 function getWeather4(event) {
   let city = document.querySelector("#city-4");
   let cityApi = city.innerHTML;
-
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  let cityCurrent = document.querySelector("#current-city");
+
+  city.innerHTML = cityCurrent.innerHTML;
   axios.get(apiUrl).then(showData);
 }
-
-let city4 = document.querySelector("#city-4");
-city4.addEventListener("click", getWeather4);
 
 function getWeather5(event) {
   let city = document.querySelector("#city-5");
   let cityApi = city.innerHTML;
-
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  let cityCurrent = document.querySelector("#current-city");
+
+  city.innerHTML = cityCurrent.innerHTML;
   axios.get(apiUrl).then(showData);
 }
-
-let city5 = document.querySelector("#city-5");
-city5.addEventListener("click", getWeather5);
 
 function getWeather6(event) {
   let city = document.querySelector("#city-6");
   let cityApi = city.innerHTML;
-
   let apiKey = "1fd9d0abbac5edf293ecf453793c7cfa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityApi}&appid=${apiKey}&units=${units}`;
+  let cityCurrent = document.querySelector("#current-city");
+
+  city.innerHTML = cityCurrent.innerHTML;
   axios.get(apiUrl).then(showData);
 }
 
+let city1 = document.querySelector("#city-1");
+let city2 = document.querySelector("#city-2");
+let city3 = document.querySelector("#city-3");
+let city4 = document.querySelector("#city-4");
+let city5 = document.querySelector("#city-5");
 let city6 = document.querySelector("#city-6");
+
+city1.addEventListener("click", getWeather1);
+city2.addEventListener("click", getWeather2);
+city3.addEventListener("click", getWeather3);
+city4.addEventListener("click", getWeather4);
+city5.addEventListener("click", getWeather5);
 city6.addEventListener("click", getWeather6);

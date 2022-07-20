@@ -57,6 +57,7 @@ p {
 
 .search-box {
   align-items: right;
+  padding: 0;
 }
 
 #current-location {
