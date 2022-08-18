@@ -158,7 +158,10 @@ function searchCity(event) {
 }
 
 let searchForm = document.querySelector("#search-form");
+let searchBtn = document.querySelector("#search-box");
+
 searchForm.addEventListener("submit", searchCity);
+searchBtn.addEventListener("click", searchCity);
 
 // conversion temp
 
